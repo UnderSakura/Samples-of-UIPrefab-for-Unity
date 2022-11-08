@@ -3,3 +3,6 @@
 About UI Prefabs of Digital_Exhibition.
 
 > 目前已更新列表滑动的UIPrefab的制作
+* 列表滑动 (已完成) `正在完善`
+* 悬浮卡牌
+* 放映机效果

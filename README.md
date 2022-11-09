@@ -18,4 +18,4 @@ About UI Prefabs of Digital_Exhibition.
 在`Project`操作区域内右键创建`ScriptableObject`数据，并点击Element旁边的`+`号，对列表进行编写数据。
 * **开始**
 > 正在完善
-![生成效果图](Images/ScrollViewPreview.jpg)
+![生成效果图](Images/ScrollViewPreview.png)

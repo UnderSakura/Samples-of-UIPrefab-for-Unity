@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ScrollViewInitManager : MonoBehaviour
 {
     [Header("请放入存放滑片内容信息的数据")]
-    public ScrollViewContentData contentData;
+    public ContentData contentData;
     [Header("请放入UICard的Prefab")]
     public GameObject UIContent_Prefab;
     [Header("设置生成间距-px")]
@@ -38,7 +38,6 @@ public class ScrollViewInitManager : MonoBehaviour
         tmp_GameObject.GetComponent<RectTransform>().sizeDelta = new Vector2((InitLength * contents.Count + InitLength / 4), 600f);
 
         for (int index = 0; index < contents.Count; index++) {
-            //Debug.Log(parentObject.anchoredPosition.x);
             if (index == 0) { parentObject.anchoredPosition = InitCurrentCardInWorld(parentObject, index, gameObjects, true, tmp_GameObject); }
             else {
                 parentObject.anchoredPosition = InitCurrentCardInWorld(parentObject, index, gameObjects, false, tmp_GameObject);
@@ -47,8 +46,6 @@ public class ScrollViewInitManager : MonoBehaviour
 
         var SetContent = this.GetComponentInChildren<ScrollRect>();
         SetContent.content = tmp_GameObject.GetComponent<RectTransform>();
-
-        //Debug.Log(tmp_GameObject.GetComponent<RectTransform>().sizeDelta.x / 2f);
     }
 
     Vector2 InitCurrentCardInWorld(RectTransform parentObject, int index, GameObject[] gameObjects, bool isIndexO, GameObject parentGameObject) {
@@ -60,12 +57,14 @@ public class ScrollViewInitManager : MonoBehaviour
         var thisContent = Instantiate(UIContent_Prefab);
         gameObjects[index] = thisContent;
         thisContent.GetComponentInChildren<Text>().text = contents[index].ContentText;
+        thisContent.GetComponentInChildren<Image>().sprite = contents[index].FrontImage;
+        Debug.Log(thisContent.GetComponentInChildren<Image>().gameObject.name);
         var tmp_rectTransform = thisContent.GetComponent<RectTransform>();
         
         tmp_rectTransform.gameObject.transform.SetParent(GameObject.Find("EmptyGameObject").transform);
         tmp_rectTransform.anchoredPosition = new Vector2((parentObject.anchoredPosition.x - (parentGameObject.GetComponent<RectTransform>().sizeDelta.x / 2f)), parentObject.anchoredPosition.y);
-        Debug.Log("减下的固定长度父物体长度的一半：" + (parentGameObject.GetComponent<RectTransform>().sizeDelta.x / 2f));
-        Debug.Log((parentObject.anchoredPosition.x - (parentGameObject.GetComponent<RectTransform>().sizeDelta.x / 2f)));
+        //Debug.Log("减下的固定长度父物体长度的一半：" + (parentGameObject.GetComponent<RectTransform>().sizeDelta.x / 2f));
+        //Debug.Log((parentObject.anchoredPosition.x - (parentGameObject.GetComponent<RectTransform>().sizeDelta.x / 2f)));
 
         return parentObject.anchoredPosition;
     }

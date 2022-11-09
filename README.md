@@ -23,7 +23,6 @@ About UI Prefabs of Digital_Exhibition.
 ![生成效果图](Images/ScrollViewPreview.png)\
 在`ScrollViewScripts`文件夹中有测试用的`TestDatas`，将测试数据拖进`UIScrollView_Prefab`的`Inspector`中的`Content Data`中。并按照`Inspector`中`Scroll View Init Manage(Script)`组件`[Header]`头标题的说明将相关的Prefab拖进对应变量中。\
 **`UI Content_Prefab`中的`Prefab`在`InitPrefabs`文件夹中。**\
-
 下面是UIScrollView在Hierarchy中的布局\
 ![UIScrollView在Hierarchy中的布局](Images/ScrollViewHierarchy.png)\
 下面是Inspector中的存放数据的public变量\

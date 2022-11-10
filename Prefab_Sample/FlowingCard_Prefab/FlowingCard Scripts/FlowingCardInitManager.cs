@@ -39,6 +39,9 @@ public class FlowingCardInitManager : MonoBehaviour
             var thisContent = Instantiate(UIContent_Prefab, parentObject);
             gameObjects[index] = thisContent;
             thisContent.GetComponentInChildren<Text>().text = contents[index].ContentText;
+            if (contents[index].FrontImage != null) {
+                GameObject.Find("FrontImage").GetComponent<Image>().sprite = contents[index].FrontImage;
+            }
 
             thisContent.transform.SetParent(tmp_GameObject.transform);
             thisContent.transform.localPosition = new Vector3(parentObject.position.x - (GameObject.Find("FC_Canvas").GetComponent<RectTransform>().sizeDelta.x /2f), 

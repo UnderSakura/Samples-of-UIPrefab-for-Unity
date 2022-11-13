@@ -34,7 +34,7 @@ public class CardOperation : MonoBehaviour
         RaycastHit[] hits;
         hits = Physics.RaycastAll(origin: Camera.main.transform.position,
                                   direction: (-Camera.main.transform.position + targetFacePoint.position).normalized,
-                                  maxDistance: (-Camera.main.transform.position + targetFacePoint.position).magnitude);
+                                  maxDistance: /*(-Camera.main.transform.position + targetFacePoint.position).magnitude*/1000f);
         bool passedThroughColiderOnCard = false;
         foreach (RaycastHit h in hits)
         {
